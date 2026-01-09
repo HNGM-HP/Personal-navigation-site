@@ -1,0 +1,380 @@
+[
+    {
+        "id": "id_6960d04ac92a2504becbe",
+        "name": "远程管理",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04ac9362163ac974",
+        "name": "云端",
+        "parent_id": "id_6960d04ac92a2504becbe",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ac95e06970ddd6",
+        "name": "远程设备",
+        "parent_id": "id_6960d04ac92a2504becbe",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ac97d61b864475",
+        "name": "工具",
+        "parent_id": "id_6960d04ac92a2504becbe",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ac9b21f7f90ec6",
+        "name": "CDN",
+        "parent_id": "id_6960d04ac92a2504becbe",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ac9d10b80f3bcb",
+        "name": "教程",
+        "parent_id": "id_6960d04ac9b21f7f90ec6",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ac9e5815333719",
+        "name": "金融",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04ac9f95fe35bf77",
+        "name": "教程工具",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04aca00af39424af",
+        "name": "美图",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca0f306abc7d1",
+        "name": "抖音工具",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca21910e33a74",
+        "name": "win工具",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca46f3539ed4e",
+        "name": "路由器刷机",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca5c0fd8fd44c",
+        "name": "光猫",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca62e23d83745",
+        "name": "ZTE",
+        "parent_id": "id_6960d04aca5c0fd8fd44c",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca73dd9eabc5c",
+        "name": "烽火",
+        "parent_id": "id_6960d04aca5c0fd8fd44c",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04aca8c1345541f9",
+        "name": "华为",
+        "parent_id": "id_6960d04aca5c0fd8fd44c",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acaa10fbff9063",
+        "name": "机顶盒",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acaa46ec79b999",
+        "name": "烽火",
+        "parent_id": "id_6960d04acaa10fbff9063",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acad43bc2bef12",
+        "name": "IPTV",
+        "parent_id": "id_6960d04acaa10fbff9063",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acae18ca263f33",
+        "name": "ZABBIX",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acb3d9364dad0b",
+        "name": "centos",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acb82ec05e0640",
+        "name": "华为交换机",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acb94808444d15",
+        "name": "PVE",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acba8a2dff1f6e",
+        "name": "exsi",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acbbfd670f7f48",
+        "name": "阵列卡",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acbd4bdcb5bc3f",
+        "name": "群晖",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acbed275570d01",
+        "name": "服务器",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acbfb355d95edc",
+        "name": "交换机",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc062e69366d8",
+        "name": "LVM",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc103bc861028",
+        "name": "IPTV",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc13e52087ccf",
+        "name": "图标库",
+        "parent_id": "id_6960d04ac9f95fe35bf77",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc261141686d2",
+        "name": "办公工具",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acc29cbcc35e42",
+        "name": "工商税务",
+        "parent_id": "id_6960d04acc261141686d2",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc42e9b04a219",
+        "name": "超市",
+        "parent_id": "id_6960d04acc261141686d2",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc53b6167fa9b",
+        "name": "自动售卖机",
+        "parent_id": "id_6960d04acc42e9b04a219",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc61eff292853",
+        "name": "联通",
+        "parent_id": "id_6960d04acc261141686d2",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acc9ca15b105ff",
+        "name": "家庭",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04accbbefdf67537",
+        "name": "教育",
+        "parent_id": "id_6960d04acc9ca15b105ff",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acccf9c9ed8ae9",
+        "name": "内网",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acce1d32d0fa8b",
+        "name": "股票",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04accf6c4c441bce",
+        "name": "3D打印",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acd00d46f4587b",
+        "name": "娱乐",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acd07aeaaf37f2",
+        "name": "游戏",
+        "parent_id": "id_6960d04acd00d46f4587b",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acd1cde19ddd2c",
+        "name": "小说下载",
+        "parent_id": "id_6960d04acd00d46f4587b",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acd46385ad1f3e",
+        "name": "AI",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acd6090c598c1f",
+        "name": "模型",
+        "parent_id": "id_6960d04acd46385ad1f3e",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acd8648526300d",
+        "name": "外贸",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    },
+    {
+        "id": "id_6960d04acd89f7e4b2850",
+        "name": "账号",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acd9f3e2b76d72",
+        "name": "斗篷",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acda65ae24db79",
+        "name": "社媒",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acdad793f98d39",
+        "name": "支付",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acdc8d8499ac75",
+        "name": "检测",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04acdea8ab215ad8",
+        "name": "VPS",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace10952b3be32",
+        "name": "地址生成",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace2c425d31cff",
+        "name": "IP代理",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace45812533def",
+        "name": "TIKTOK教程",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace5091e945fee",
+        "name": "手机",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace57e6b4c37a8",
+        "name": "AI翻译",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace5f0f8121670",
+        "name": "货代\/物流",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace6abf81263d0",
+        "name": "传真",
+        "parent_id": "id_6960d04acd8648526300d",
+        "created_date": 1767952458
+    },
+    {
+        "id": "id_6960d04ace8392b917d4f",
+        "name": "测速",
+        "parent_id": "",
+        "created_date": 1767952458,
+        "description": ""
+    }
+]
