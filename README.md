@@ -2,6 +2,8 @@
 
 一个轻量级、功能强大的个人书签导航与邮件发送集成服务系统。
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/HNGM-HP/Personal-navigation-site/tree/main)
+
 ## 🌟 功能特性
 
 ### 📚 核心导航功能
@@ -47,6 +49,9 @@
 ## 🔐 安全说明
 -   **管理后台**：受密码保护，初次部署需强制设置。
 -   **数据安全**：所有数据本地存储于 `data/` 目录下的 JSON 文件中，无需数据库。
+
+## 🔗 开源地址
+[https://github.com/HNGM-HP/Personal-navigation-site/tree/main](https://github.com/HNGM-HP/Personal-navigation-site/tree/main)
 
 ---
 Designed by Copilot. Generated for HNGM-HP.
@@ -349,6 +354,10 @@ A:
 ## 📄 许可证
 
 MIT License - 详见 [LICENSE](LICENSE) 文件
+
+## 👨‍💻 作者
+
+Email Navigation Service Team
 
 ## 🙏 致谢
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人书签导航系统</title>
+    <link rel="icon" href="data/favicons/faviconV1.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.0.0/remixicon.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <style>

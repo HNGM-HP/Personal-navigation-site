@@ -175,12 +175,24 @@ function renderBookmarks() {
         return;
     }
 
-    appData.folders.forEach(folder => {
-        const links = appData.bookmarks.filter(b => b.folder_id === folder.id);
-        if (links.length > 0) {
-            container.appendChild(createSection(folder.name, links, `folder-${folder.id}`));
-        }
-    });
+    // 递归渲染文件夹及其书签，以匹配左侧导航栏的顺序
+    function renderFolderSections(folders, parentId = '') {
+        const currentLevelFolders = folders.filter(f => (f.parent_id || '') === parentId);
+        
+        currentLevelFolders.forEach(folder => {
+            // 渲染当前文件夹的书签
+            const links = appData.bookmarks.filter(b => b.folder_id === folder.id);
+            if (links.length > 0) {
+                container.appendChild(createSection(folder.name, links, `folder-${folder.id}`));
+            }
+            
+            // 递归渲染子文件夹的书签
+            renderFolderSections(folders, folder.id);
+        });
+    }
+
+    // 从顶级分类开始渲染
+    renderFolderSections(appData.folders, '');
 
     const uncategorizedLinks = appData.bookmarks.filter(b => !b.folder_id);
     if (uncategorizedLinks.length > 0) {
@@ -208,11 +220,39 @@ function createSection(name, links, id) {
         card.target = '_blank';
         
         let hostname = 'example.com';
-        try { hostname = new URL(bm.url).hostname; } catch (e) {}
-        const faviconUrl = `https://www.google.com/s2/favicons?domain=${hostname}&sz=64`;
+        let isInternal = false;
+        try { 
+            const urlObj = new URL(bm.url);
+            hostname = urlObj.hostname;
+            
+            // 简单的内网IP和localhost检测正则
+            const ipPattern = /^(127\.0\.0\.1|localhost|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|192\.168\.|0\.0\.0\.0|::1)/;
+            if (ipPattern.test(hostname) || hostname.endsWith('.local')) {
+                isInternal = true;
+            }
+        } catch (e) {}
+
+        // 默认图标路径 (用户指定)
+        const defaultIcon = "data/favicons/faviconV1.svg";
+
+        // 如果是内网地址，直接使用默认图标
+        // 如果是外网地址，使用能触发404的Google API，以便在失败时回退到本地图标
+        let iconHtml = '';
+        if (isInternal) {
+            iconHtml = `<img src="${defaultIcon}" alt="icon" class="bookmark-icon">`;
+        } else {
+            // 使用 t2.gstatic.com API，当图标不存在时它会返回 404
+            // 这样 onerror 事件就会被触发，从而执行回退逻辑
+            const faviconUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(bm.url)}&size=64`;
+            
+            // onerror: 加载失败时替换为本地默认图标
+            const onerrorCode = `this.src='${defaultIcon}';this.onerror=null;`;
+
+            iconHtml = `<img src="${faviconUrl}" alt="icon" class="bookmark-icon" onerror="${onerrorCode}">`;
+        }
 
         card.innerHTML = `
-            <img src="${faviconUrl}" alt="icon" class="bookmark-icon" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiPjwvY2lyY2xlPjxsaW5lIHgxPSIxMiIgeTE9IjgiIHgyPSIxMiIgeTI9IjEyIj48L2xpbmU+PGxpbmUgeDE9IjEyIiB5MT0iMTYiIHgyPSIxMi4wMSIgeTI9IjE2Ij48L2xpbmU+PC9zdmc+'">
+            ${iconHtml}
             <div class="bookmark-info">
                 <div class="bookmark-title" title="${bm.title}">${bm.title}</div>
                 <div class="bookmark-desc" title="${bm.description || hostname}">${bm.description || hostname}</div>

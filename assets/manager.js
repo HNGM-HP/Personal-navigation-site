@@ -287,11 +287,14 @@ function renderFolderTree() {
             item.appendChild(toggle);
             item.appendChild(icon);
             item.appendChild(title);
+            
+            // 将文件夹行添加到容器
+            container.appendChild(item);
 
             // Container for children
             const childContainer = document.createElement('div');
             childContainer.className = 'folder-children';
-            childContainer.style.marginLeft = '18px';
+            childContainer.style.marginLeft = '18px'; // 保持视觉层级缩进，或者依赖CSS
             childContainer.style.display = 'none';
 
             // Click handlers
@@ -299,12 +302,21 @@ function renderFolderTree() {
                 e.stopPropagation();
                 // Filter list by this folder
                 filterByFolder(folder.id);
+                // 选中状态样式
+                tree.querySelectorAll('.folder-item').forEach(el => el.classList.remove('selected'));
+                item.classList.add('selected');
 
                 // Also toggle expansion for this item (useful for UX)
                 const isCollapsed = toggle.classList.contains('collapsed');
                 if (level === 1 && isCollapsed) {
                     // collapse other top-level folders
-                    tree.querySelectorAll('.folder-item.level-1 .folder-children').forEach(c => c.style.display = 'none');
+                    tree.querySelectorAll('.folder-item.level-1').forEach(el => {
+                        // 找到紧随其后的 .folder-children 元素
+                        let next = el.nextElementSibling;
+                        if(next && next.classList.contains('folder-children')) {
+                            next.style.display = 'none';
+                        }
+                    });
                     tree.querySelectorAll('.folder-item.level-1 .folder-toggle').forEach(t => t.classList.remove('expanded'));
                     tree.querySelectorAll('.folder-item.level-1 .folder-toggle').forEach(t => t.classList.add('collapsed'));
                 }
@@ -326,7 +338,12 @@ function renderFolderTree() {
                 // If top-level, collapse other top-level folders when expanding
                 if (level === 1 && isCollapsed) {
                     // collapse all other top-level children
-                    tree.querySelectorAll('.folder-item.level-1 .folder-children').forEach(c => c.style.display = 'none');
+                     tree.querySelectorAll('.folder-item.level-1').forEach(el => {
+                        let next = el.nextElementSibling;
+                        if(next && next.classList.contains('folder-children')) {
+                            next.style.display = 'none';
+                        }
+                    });
                     tree.querySelectorAll('.folder-item.level-1 .folder-toggle').forEach(t => t.classList.remove('expanded'));
                     tree.querySelectorAll('.folder-item.level-1 .folder-toggle').forEach(t => t.classList.add('collapsed'));
                 }
@@ -346,7 +363,8 @@ function renderFolderTree() {
             const childrenFragment = renderNodes(folder.id, level + 1);
             if (childrenFragment && childrenFragment.childNodes && childrenFragment.childNodes.length > 0) {
                 childContainer.appendChild(childrenFragment);
-                item.appendChild(childContainer);
+                // 将子容器添加在 item 后面，而不是里面
+                container.appendChild(childContainer);
             }
 
             container.appendChild(item);
@@ -401,7 +419,7 @@ function updateFolderSelectors() {
 function filterByFolder(folderId) {
     const filtered = folderId ? bookmarks.filter(b => b.folder_id === folderId) : bookmarks;
     currentPage = 1;
-    renderBookmarksTable(filtered);
+    renderBookmarks(filtered);
 }
 
 // 渲染书签表格
@@ -496,12 +514,29 @@ function applySortBookmarks(data) {
     const sorted = [...data];
     const sortBy = document.getElementById('sortBy')?.value || currentSortBy;
     
+    // 创建文件夹排序权重映射
+    const folderOrderMap = {};
+    folders.forEach(f => {
+        folderOrderMap[f.id] = parseInt(f.sort_order || 0);
+    });
+    
     switch(sortBy) {
         case 'custom':
             sorted.sort((a, b) => {
+                // 首先按文件夹的排序权重排序
+                const folderAOrder = folderOrderMap[a.folder_id] ?? 999999;
+                const folderBOrder = folderOrderMap[b.folder_id] ?? 999999;
+                
+                if (folderAOrder !== folderBOrder) {
+                    return folderAOrder - folderBOrder;
+                }
+                
+                // 其次按书签自身的排序权重排序
                 const orderA = parseInt(a.sort_order || 0);
                 const orderB = parseInt(b.sort_order || 0);
                 if (orderA !== orderB) return orderA - orderB;
+                
+                // 最后按时间倒序
                 return (b.add_date || 0) - (a.add_date || 0);
             });
             break;

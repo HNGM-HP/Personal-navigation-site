@@ -189,6 +189,37 @@ body {
     gap: 5px;
 }
 
+.email-btn-highlight {
+    background: var(--primary-color);
+    color: #fff !important;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 14px !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(241, 64, 75, 0.3);
+}
+
+.email-btn-highlight:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(241, 64, 75, 0.4);
+    filter: brightness(1.1);
+}
+
+.email-btn-highlight i {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .email-btn-highlight .btn-text {
+        display: none;
+    }
+    .email-btn-highlight {
+        padding: 6px 8px;
+        border-radius: 50%;
+    }
+}
+
 .github-btn {
     font-size: 14px;
     background: #24292e;
